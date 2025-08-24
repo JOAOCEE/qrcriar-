@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - QR Maker</title>
+    <meta name="description" content="Entre em contato com a equipe do QR Maker. Envie suas dúvidas, sugestões ou feedback através do nosso formulário de contato.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="header-logo">QR Maker</h1>
+            <nav class="main-nav">
+                <a href="index.html">Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="recursos.html">Recursos</a>
+                <a href="contato.html" class="active">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content page-content contact-page">
+        <section class="content-section">
+            <h1 class="page-title">Entre em Contato</h1>
+            <p class="page-subtitle">
+                Tem alguma dúvida, sugestão ou feedback? Fale conosco preenchendo o formulário abaixo.
+            </p>
+            
+            <form class="contact-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Seu Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Assunto:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Sua Mensagem:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="action-button primary">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 QR Maker. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

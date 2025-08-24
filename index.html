@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QR Maker: Crie QR Codes personalizados de forma rápida e fácil para links, texto, Wi-Fi e mais.">
+    <title>Gerador de QR Code Único</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Inclui a biblioteca qrcode.js para gerar o QR Code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="header-logo">QR Maker</h1>
+            <nav class="main-nav">
+                <a href="index.html" class="active">Início</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="recursos.html">Recursos</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="generator-options">
+            <h1 class="page-title">Crie seu QR Code</h1>
+            <p class="page-subtitle">Rápido, fácil e totalmente personalizável.</p>
+
+            <h2 class="section-title">1. Escolha o tipo de conteúdo</h2>
+            <div class="content-type-cards">
+                <div class="card active" data-type="link"> <!-- Adicionado 'active' aqui -->
+                    <img src="icons/link.png" alt="Ícone de Link">
+                    <p class="card-title">Link</p>
+                    <p class="card-description">URLs, sites e páginas.</p>
+                </div>
+                <div class="card" data-type="text">
+                    <img src="icons/texto.png" alt="Ícone de Texto">
+                    <p class="card-title">Texto</p>
+                    <p class="card-description">Qualquer texto simples.</p>
+                </div>
+                <div class="card" data-type="email">
+                    <img src="icons/email.png" alt="Ícone de E-mail">
+                    <p class="card-title">E-mail</p>
+                    <p class="card-description">Endereços de e-mail.</p>
+                </div>
+                <div class="card" data-type="wifi">
+                    <img src="icons/wi-fi.png" alt="Ícone de Wi-Fi">
+                    <p class="card-title">Wi-Fi</p>
+                    <p class="card-description">Conectar em uma rede.</p>
+                </div>
+                <div class="card" data-type="sms">
+                    <img src="icons/sms.png" alt="Ícone de SMS">
+                    <p class="card-title">SMS</p>
+                    <p class="card-description">Enviar mensagens de texto.</p>
+                </div>
+                <div class="card" data-type="tel">
+                    <img src="icons/telefone.png" alt="Ícone de Telefone">
+                    <p class="card-title">Telefone</p>
+                    <p class="card-description">Fazer uma ligação.</p>
+                </div>
+                <div class="card" data-type="vcard">
+                    <img src="icons/Contato(vCard).png" alt="Ícone de Contato">
+                    <p class="card-title">Contato</p>
+                    <p class="card-description">Salvar na agenda.</p>
+                </div>
+                <div class="card" data-type="location">
+                    <img src="icons/localizaçao.png" alt="Ícone de Localização">
+                    <p class="card-title">Localização</p>
+                    <p class="card-description">Coordenadas e mapas.</p>
+                </div>
+                <div class="card" data-type="calendar">
+                    <img src="icons/evento.png" alt="Ícone de Calendário">
+                    <p class="card-title">Evento</p>
+                    <p class="card-description">Adicionar na agenda.</p>
+                </div>
+                <div class="card" data-type="social">
+                    <img src="icons/Redes-Sociais.png" alt="Ícone de Redes Sociais">
+                    <p class="card-title">Social</p>
+                    <p class="card-description">Links para redes sociais.</p>
+                </div>
+                <div class="card" data-type="video">
+                    <img src="icons/video.png" alt="Ícone de Vídeo">
+                    <p class="card-title">Vídeo</p>
+                    <p class="card-description">Link para vídeos.</p>
+                </div>
+                <div class="card" data-type="mp3">
+                    <img src="icons/mp3.png" alt="Ícone de MP3">
+                    <p class="card-title">MP3</p>
+                    <p class="card-description">Link para arquivos de áudio.</p>
+                </div>
+                <div class="card" data-type="pdf">
+                    <img src="icons/pdf.png" alt="Ícone de PDF">
+                    <p class="card-title">PDF</p>
+                    <p class="card-description">Link para documentos.</p>
+                </div>
+                <div class="card" data-type="images">
+                    <img src="icons/imagens.png" alt="Ícone de Imagens">
+                    <p class="card-title">Imagens</p>
+                    <p class="card-description">Link para galerias.</p>
+                </div>
+                <div class="card" data-type="menu">
+                    <img src="icons/cardapio.png" alt="Ícone de Cardápio">
+                    <p class="card-title">Cardápio</p>
+                    <p class="card-description">Link para cardápios online.</p>
+                </div>
+                <div class="card" data-type="app">
+                    <img src="icons/app.png" alt="Ícone de Aplicativo">
+                    <p class="card-title">App</p>
+                    <p class="card-description">Download de aplicativos.</p>
+                </div>
+            </div>
+
+            <div id="input-fields" class="input-fields-container">
+                <!-- Campos de entrada serão injetados aqui pelo JavaScript -->
+            </div>
+
+            <h2 class="section-title">2. Personalize seu QR Code</h2>
+            <div class="customization-options">
+                <div class="color-picker-container">
+                    <label for="color-picker">Cor do QR Code:</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="color-picker" value="#1a56db">
+                    </div>
+                </div>
+                <h3 class="customization-subtitle">Escolha a textura</h3>
+                <div class="texture-options">
+                    <div class="texture-card active" data-texture="none"> <!-- Adicionado 'active' aqui -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        </svg>
+                    </div>
+                    <div class="texture-card" data-texture="dots">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="0.5"></circle>
+                            <circle cx="12" cy="8.5" r="0.5"></circle>
+                            <circle cx="15.5" cy="8.5" r="0.5"></circle>
+                            <circle cx="8.5" cy="12" r="0.5"></circle>
+                            <circle cx="12" cy="12" r="0.5"></circle>
+                            <circle cx="15.5" cy="12" r="0.5"></circle>
+                            <circle cx="8.5" cy="15.5" r="0.5"></circle>
+                            <circle cx="12" cy="15.5" r="0.5"></circle>
+                            <circle cx="15.5" cy="15.5" r="0.5"></circle>
+                        </svg>
+                    </div>
+                    <div class="texture-card" data-texture="square">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <rect x="8" y="8" width="8" height="8" rx="1" ry="1"></rect>
+                        </svg>
+                    </div>
+                    <div class="texture-card" data-texture="star">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="customization-subtitle">3. Adicione um Logo (Opcional)</h3>
+                <div class="logo-upload-container">
+                    <label for="logo-input" class="action-button primary">Escolher Logo</label>
+                    <input type="file" id="logo-input" accept="image/*" style="display: none;">
+                    <div id="logo-preview" class="logo-preview">
+                        <span class="placeholder-text">Logo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="qr-code-display">
+            <div class="qr-code-box">
+                <div id="qr-code-placeholder" class="placeholder-text">
+                    Seu QR Code aparecerá aqui
+                </div>
+                <div id="qr-code"></div>
+                <p id="qr-code-description" class="qr-description" style="display:none;"></p>
+            </div>
+            <button id="generate-button" class="action-button primary">Gerar QR Code</button>
+            <a id="download-button" class="action-button download" href="#" download="qrcode.png" style="display:none;">Baixar</a>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 QR Maker. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Inclui o seu script.js -->
+    <script src="script.js"></script>
+</body>
+</html>
